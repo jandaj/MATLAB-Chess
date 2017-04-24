@@ -1,18 +1,24 @@
 classdef GamePiece < handle
     properties
-        position;
+        position;       % 1x2 array for position of piece
+        team;           % 0 = player team, 1 = opponent team, -1 = empty space
+                        
     end
     
     methods
-        function obj = setPosition(obj, xPosition, yPosition)
-            % Just in case we ever need to change a position on the fly
-            obj.position = [xPosition, yPosition];
+        function piece = GamePiece(inputTeam)
+            if nargin > 0 
+                piece.team = inputTeam;
+            end
         end
+       
         
-        function obj = moveToSpace(obj, newX, newY)
+        function obj = isValidMove(obj, newX, newY)
             % The idea is to override this in every class, but just in
             % case, we can throw an error.
-            error('You forgot to override the moveToSpace function')
+            error('You forgot to override the isValidMove function')
         end
+        
+        
     end
 end

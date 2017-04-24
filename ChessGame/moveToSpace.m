@@ -3,9 +3,10 @@
 % some other data type, you'll have to use different
 % comparison/getter/setter methods to make the function work.
 
-function handles = moveToSpace(buttonObj, handles)    
-    if strcmp(handles.pieceString, '') == 1 && ...
-            strcmp(get(buttonObj, 'String'), '') == 0
+function handles = moveToSpace(buttonObj, handles)
+    emptyImage = imread('resources/pieces/empty.png');
+    
+    if 
         handles.pieceString = get(buttonObj, 'String');
         set(buttonObj, 'BackgroundColor', 'yellow');
         set(buttonObj, 'String', '');

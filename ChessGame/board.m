@@ -45,11 +45,13 @@ end
 
 function board_OpeningFcn(hObject, eventdata, handles, varargin)
 handles.output = hObject;
+handles.pieceMatrix = [];
 guidata(hObject, handles);
 axes(handles.board);
 hold on;
 board = imshow('resources/board.png');
 board.HitTest = 'off';
+
 
 %%Positions / Pieces
 
@@ -694,6 +696,101 @@ set(a, 'AlphaData', alpha);
 a.HitTest = 'off';
 
 
+% Set UserData to corresponding positions.
+% This works! Do it for all the other axes.
+set(handles.pos_1_1, 'UserData', [1,1]);
+set(handles.pos_1_2, 'UserData', [1,2]);
+set(handles.pos_1_3, 'UserData', [1,3]);
+set(handles.pos_1_4, 'UserData', [1,4]);
+set(handles.pos_1_5, 'UserData', [1,5]);
+set(handles.pos_1_6, 'UserData', [1,6]);
+set(handles.pos_1_7, 'UserData', [1,7]);
+set(handles.pos_1_8, 'UserData', [1,8]);
+
+set(handles.pos_2_1, 'UserData', [2,1]);
+set(handles.pos_2_2, 'UserData', [2,2]);
+set(handles.pos_2_3, 'UserData', [2,3]);
+set(handles.pos_2_4, 'UserData', [2,4]);
+set(handles.pos_2_5, 'UserData', [2,5]);
+set(handles.pos_2_6, 'UserData', [2,6]);
+set(handles.pos_2_7, 'UserData', [2,7]);
+set(handles.pos_2_8, 'UserData', [2,8]);
+
+set(handles.pos_3_1, 'UserData', [3,1]);
+set(handles.pos_3_2, 'UserData', [3,2]);
+set(handles.pos_3_3, 'UserData', [3,3]);
+set(handles.pos_3_4, 'UserData', [3,4]);
+set(handles.pos_3_5, 'UserData', [3,5]);
+set(handles.pos_3_6, 'UserData', [3,6]);
+set(handles.pos_3_7, 'UserData', [3,7]);
+set(handles.pos_3_8, 'UserData', [3,8]);
+
+set(handles.pos_4_1, 'UserData', [4,1]);
+set(handles.pos_4_2, 'UserData', [4,2]);
+set(handles.pos_4_3, 'UserData', [4,3]);
+set(handles.pos_4_4, 'UserData', [4,4]);
+set(handles.pos_4_5, 'UserData', [4,5]);
+set(handles.pos_4_6, 'UserData', [4,6]);
+set(handles.pos_4_7, 'UserData', [4,7]);
+set(handles.pos_4_8, 'UserData', [4,8]);
+
+set(handles.pos_5_1, 'UserData', [5,1]);
+set(handles.pos_5_2, 'UserData', [5,2]);
+set(handles.pos_5_3, 'UserData', [5,3]);
+set(handles.pos_5_4, 'UserData', [5,4]);
+set(handles.pos_5_5, 'UserData', [5,5]);
+set(handles.pos_5_6, 'UserData', [5,6]);
+set(handles.pos_5_7, 'UserData', [5,7]);
+set(handles.pos_5_8, 'UserData', [5,8]);
+
+set(handles.pos_6_1, 'UserData', [6,1]);
+set(handles.pos_6_2, 'UserData', [6,2]);
+set(handles.pos_6_3, 'UserData', [6,3]);
+set(handles.pos_6_4, 'UserData', [6,4]);
+set(handles.pos_6_5, 'UserData', [6,5]);
+set(handles.pos_6_6, 'UserData', [6,6]);
+set(handles.pos_6_7, 'UserData', [6,7]);
+set(handles.pos_6_8, 'UserData', [6,8]);
+
+set(handles.pos_7_1, 'UserData', [7,1]);
+set(handles.pos_7_2, 'UserData', [7,2]);
+set(handles.pos_7_3, 'UserData', [7,3]);
+set(handles.pos_7_4, 'UserData', [7,4]);
+set(handles.pos_7_5, 'UserData', [7,5]);
+set(handles.pos_7_6, 'UserData', [7,6]);
+set(handles.pos_7_7, 'UserData', [7,7]);
+set(handles.pos_7_8, 'UserData', [7,8]);
+
+set(handles.pos_8_1, 'UserData', [8,1]);
+set(handles.pos_8_2, 'UserData', [8,2]);
+set(handles.pos_8_3, 'UserData', [8,3]);
+set(handles.pos_8_4, 'UserData', [8,4]);
+set(handles.pos_8_5, 'UserData', [8,5]);
+set(handles.pos_8_6, 'UserData', [8,6]);
+set(handles.pos_8_7, 'UserData', [8,7]);
+set(handles.pos_8_8, 'UserData', [8,8]);
+
+
+disp('Positions have been set');
+setGlobalManager();
+% move() testing here.
+% pos = get(handles.pos_1_1, 'UserData');
+% manager.move(pos, handles.pos_1_1, handles);
+
+
+
+% Instantiate GameManager and make its value global (can be accessed from
+% any function)
+function setGlobalManager()
+global manager;
+manager = GameManager();
+
+% Get the GameManager variable (to be used inside the callback functions)
+function m = getGlobalManager()
+global manager;
+m = manager;
+
+
 
 % UIWAIT makes board wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
@@ -720,27 +817,66 @@ function board_CreateFcn(hObject, eventdata, handles)
 
 function pos_1_1_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_1_1');
+position = get(handles.pos_1_1, 'UserData');
+manager = getGlobalManager();
+[manager, pieceArray] = manager.move(position, handles.pos_1_1, handles);
+manager.gamePieceArray = pieceArray;
 
 function pos_1_2_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_1_2');
+position = get(handles.pos_1_2, 'UserData');
+manager = getGlobalManager();
+[manager, pieceArray] = manager.move(position, handles.pos_1_2, handles);
+manager.gamePieceArray = pieceArray;
+
 
 function pos_1_3_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_1_3');
+position = get(handles.pos_1_3, 'UserData');
+manager = getGlobalManager();
+[manager, pieceArray] = manager.move(position, handles.pos_1_3, handles);
+manager.gamePieceArray = pieceArray;
+
 
 function pos_1_4_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_1_4');
+position = get(handles.pos_1_4, 'UserData');
+manager = getGlobalManager();
+[manager, pieceArray] = manager.move(position, handles.pos_1_4, handles);
+manager.gamePieceArray = pieceArray;
+
 
 function pos_1_5_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_1_5');
+position = get(handles.pos_1_5, 'UserData');
+manager = getGlobalManager();
+[manager, pieceArray] = manager.move(position, handles.pos_1_5, handles);
+manager.gamePieceArray = pieceArray;
+
 
 function pos_1_6_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_1_6');
+position = get(handles.pos_1_6, 'UserData');
+manager = getGlobalManager();
+[manager, pieceArray] = manager.move(position, handles.pos_1_6, handles);
+manager.gamePieceArray = pieceArray;
+
 
 function pos_1_7_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_1_7');
+position = get(handles.pos_1_7, 'UserData');
+manager = getGlobalManager();
+[manager, pieceArray] = manager.move(position, handles.pos_1_7, handles);
+manager.gamePieceArray = pieceArray;
+
 
 function pos_1_8_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_1_8');
+position = get(handles.pos_1_8, 'UserData');
+manager = getGlobalManager();
+[manager, pieceArray] = manager.move(position, handles.pos_1_8, handles);
+manager.gamePieceArray = pieceArray;
+
 
 function pos_2_1_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_2_1');
@@ -780,6 +916,10 @@ function pos_3_7_ButtonDownFcn(hObject, eventdata, handles)
 function pos_3_8_ButtonDownFcn(hObject, eventdata, handles)
 
 function pos_4_1_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_4_1');
+position = get(handles.pos_4_1, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_4_1, handles);
 
 function pos_4_2_ButtonDownFcn(hObject, eventdata, handles)
 
