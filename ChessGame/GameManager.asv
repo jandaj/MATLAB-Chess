@@ -80,7 +80,6 @@ classdef GameManager < handle
                     switch previousPieceClass
                         case 'Rook'
                             axes(axesObj);
-                            delete(get(gca,'Children'));
                             [a,map,alpha] = imread('resources/pieces/white/rook.png');
                             a = imshow('resources/pieces/white/rook.png');
                             set(a, 'AlphaData', alpha);
@@ -88,12 +87,7 @@ classdef GameManager < handle
                     end
                     
                     previousAxes = findobj('UserData', manager.storedPosition);
-                    axes(previousAxes);
-                    delete(get(gca,'Children'));
-                    [a,map,alpha] = imread('resources/pieces/king.png');
-                    a = imshow('resources/pieces/king.png');
-                    set(a, 'AlphaData', alpha);
-                    a.HitTest = 'off';
+                    jisdjfosad(axis,filepath)
                     
                     
                     

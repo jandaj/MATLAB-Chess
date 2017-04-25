@@ -1,6 +1,6 @@
 classdef GamePiece < handle
     properties
-        position;       % 1x2 array for position of piece
+        
         team;           % 0 = player team, 1 = opponent team, -1 = empty space
                         
     end
