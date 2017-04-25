@@ -17,10 +17,10 @@ classdef GameManager < handle
         function manager = GameManager()
             manager.gamePieceArray = {};
             for i = 1:8
-                manager.gamePieceArray{i, 1} = GamePiece(0);
-                manager.gamePieceArray{i, 2} = GamePiece(0);
-                manager.gamePieceArray{i, 7} = GamePiece(1);
-                manager.gamePieceArray{i, 8} = GamePiece(1);
+                manager.gamePieceArray{1, i} = GamePiece(0);
+                manager.gamePieceArray{2, i} = GamePiece(0);
+                manager.gamePieceArray{7, i} = GamePiece(1);
+                manager.gamePieceArray{8, i} = GamePiece(1);
             end
         end
         
@@ -37,7 +37,7 @@ classdef GameManager < handle
             
             % Check if piece is empty
             if isempty(manager.storedPosition) == 1&& ...
-                    isempty(manager.gamePieceArray{y,x}) == 1
+                    isempty(manager.gamePieceArray{x,y}) == 1
                 disp('cannot move an empty space');
                 return;
             end
@@ -68,7 +68,7 @@ classdef GameManager < handle
                     
                     oldX = manager.storedPosition(1);
                     oldY = manager.storedPosition(2);
-                    selectedPiece = manager.gamePieceArray{oldY, oldX};
+                    selectedPiece = manager.gamePieceArray{oldX, oldY};
                    
                     manager.gamePieceArray{x,y} = selectedPiece;
                     manager.gamePieceArray{oldY, oldX} = [];
