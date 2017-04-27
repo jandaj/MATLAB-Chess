@@ -1,13 +1,14 @@
-classdef Rook < GamePiece
+classdef King < GamePiece
     properties
         position;
     end
     
     methods
-        function rook = Rook(team, position)
-            rook = rook@GamePiece(team);
-            rook.position = position;
+        function king = King(team, position)
+            king = king@GamePiece(team);
+            king.position = position;
         end 
+        
         
         % Fix this
         function valid = isValidMove(rook, position)

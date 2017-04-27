@@ -9,28 +9,19 @@ classdef Pawn < GamePiece
             pawn.position = position;
         end
         
-        
         function valid = isValidMove(pawn, newPosition)
             x = newPosition(1);
             y = newPosition(2);
             initX = pawn.position(1);
             initY = pawn.position(2);
-            deltaX = x - initX;
-            deltaY = y - initY;
-  
+            del
             if pawn.team == 0
-                if deltaX == 1 && deltaY == 0
-                    valid = 1;
-                else 
-                    valid = 0;
-                end
-            else
-                if deltaX == -1 && deltaY == 0
-                    valid = 1;
-                else 
-                    valid = 0;
-                end
+                
+            
+            if x - initX == 1 && y - initY == 0
+                valid = 1;
+            else 
+                valid = 0;
             end
-        end
     end
 end

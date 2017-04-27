@@ -8,5 +8,11 @@ classdef Bishop < GamePiece
             bishop = bishop@GamePiece(team);
             bishop.position = position;
         end 
+        
+        
+        % Fix this
+        function valid = isValidMove(bishop, position)
+            valid = true;
+        end
     end
 end

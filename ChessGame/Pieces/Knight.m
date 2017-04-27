@@ -8,5 +8,11 @@ classdef Knight < GamePiece
             knight = knight@GamePiece(team);
             knight.position = position;
         end 
+        
+        
+        % Fix this
+        function valid = isValidMove(knight, position)
+            valid = true;
+        end
     end
 end

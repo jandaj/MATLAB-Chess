@@ -11,14 +11,5 @@ classdef GamePiece < handle
                 piece.team = inputTeam;
             end
         end
-       
-        
-        function obj = isValidMove(obj, newX, newY)
-            % The idea is to override this in every class, but just in
-            % case, we can throw an error.
-            error('You forgot to override the isValidMove function')
-        end
-        
-        
     end
 end

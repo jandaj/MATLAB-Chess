@@ -8,5 +8,11 @@ classdef Queen < GamePiece
             queen = queen@GamePiece(team);
             queen.position = position;
         end 
+        
+        
+        % Fix this
+        function valid = isValidMove(queen, position)
+            valid = true;
+        end
     end
 end
