@@ -833,8 +833,7 @@ function pos_1_3_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_1_3');
 position = get(handles.pos_1_3, 'UserData');
 manager = getGlobalManager();
-[manager, pieceArray] = manager.move(position, handles.pos_1_3, handles);
-manager.gamePieceArray = pieceArray;
+manager = manager.move(position, handles.pos_1_3, handles);
 
 
 function pos_1_4_ButtonDownFcn(hObject, eventdata, handles)
@@ -848,70 +847,126 @@ function pos_1_5_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_1_5');
 position = get(handles.pos_1_5, 'UserData');
 manager = getGlobalManager();
-[manager, pieceArray] = manager.move(position, handles.pos_1_5, handles);
-manager.gamePieceArray = pieceArray;
+manager = manager.move(position, handles.pos_1_5, handles);
 
 
 function pos_1_6_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_1_6');
 position = get(handles.pos_1_6, 'UserData');
 manager = getGlobalManager();
-[manager, pieceArray] = manager.move(position, handles.pos_1_6, handles);
-manager.gamePieceArray = pieceArray;
+manager = manager.move(position, handles.pos_1_6, handles);
 
 
 function pos_1_7_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_1_7');
 position = get(handles.pos_1_7, 'UserData');
 manager = getGlobalManager();
-[manager, pieceArray] = manager.move(position, handles.pos_1_7, handles);
-manager.gamePieceArray = pieceArray;
+manager = manager.move(position, handles.pos_1_7, handles);
 
 
 function pos_1_8_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_1_8');
 position = get(handles.pos_1_8, 'UserData');
 manager = getGlobalManager();
-[manager, pieceArray] = manager.move(position, handles.pos_1_8, handles);
-manager.gamePieceArray = pieceArray;
+manager = manager.move(position, handles.pos_1_8, handles);
 
 
 function pos_2_1_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_2_1');
+position = get(handles.pos_2_1, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_2_1, handles);
+
 
 function pos_2_2_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_2_2');
+position = get(handles.pos_2_2, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_2_2, handles);
 
 function pos_2_3_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_2_3');
+position = get(handles.pos_2_3, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_2_3, handles);
 
 function pos_2_4_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_2_4');
+position = get(handles.pos_2_4, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_2_4, handles);
 
 function pos_2_5_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_2_5');
+position = get(handles.pos_2_5, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_2_5, handles);
 
 function pos_2_6_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_2_6');
+position = get(handles.pos_2_6, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_2_6, handles);
 
 function pos_2_7_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_2_7');
+position = get(handles.pos_2_7, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_2_7, handles);
 
 function pos_2_8_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_2_8');
+position = get(handles.pos_2_8, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_2_8, handles);
 
 function pos_3_1_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_3_1');
+position = get(handles.pos_3_1, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_3_1, handles);
 
 function pos_3_2_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_3_2');
+position = get(handles.pos_3_2, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_3_2, handles);
 
 function pos_3_3_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_3_3');
+position = get(handles.pos_3_3, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_3_3, handles);
 
 function pos_3_4_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_3_4');
+position = get(handles.pos_3_4, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_3_4, handles);
 
 function pos_3_5_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_3_5');
+position = get(handles.pos_3_5, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_3_5, handles);
 
 function pos_3_6_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_3_6');
+position = get(handles.pos_3_6, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_3_6, handles);
 
 function pos_3_7_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_3_7');
+position = get(handles.pos_3_7, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_3_7, handles);
 
 function pos_3_8_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_3_8');
+position = get(handles.pos_3_8, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_3_8, handles);
 
 function pos_4_1_ButtonDownFcn(hObject, eventdata, handles)
 disp('pos_4_1');
@@ -920,79 +975,235 @@ manager = getGlobalManager();
 manager = manager.move(position, handles.pos_4_1, handles);
 
 function pos_4_2_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_4_2');
+position = get(handles.pos_4_2, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_4_2, handles);
 
 function pos_4_3_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_4_3');
+position = get(handles.pos_4_3, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_4_3, handles);
 
 function pos_4_4_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_4_4');
+position = get(handles.pos_4_4, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_4_4, handles);
 
 function pos_4_5_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_4_5');
+position = get(handles.pos_4_5, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_4_5, handles);
 
 function pos_4_6_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_4_6');
+position = get(handles.pos_4_6, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_4_6, handles);
 
 function pos_4_7_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_4_7');
+position = get(handles.pos_4_7, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_4_7, handles);
 
 function pos_4_8_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_4_8');
+position = get(handles.pos_4_8, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_4_8, handles);
 
 function pos_5_1_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_5_1');
+position = get(handles.pos_5_1, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_5_1, handles);
 
 function pos_5_2_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_5_2');
+position = get(handles.pos_5_2, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_5_2, handles);
 
 function pos_5_3_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_5_3');
+position = get(handles.pos_5_3, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_5_3, handles);
 
 function pos_5_4_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_5_4');
+position = get(handles.pos_5_4, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_5_4, handles);
 
 function pos_5_5_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_5_5');
+position = get(handles.pos_5_5, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_5_5, handles);
 
 function pos_5_6_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_5_6');
+position = get(handles.pos_5_6, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_5_6, handles);
 
 function pos_5_7_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_5_7');
+position = get(handles.pos_5_7, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_5_7, handles);
 
 function pos_5_8_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_5_8');
+position = get(handles.pos_5_8, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_5_8, handles);
 
 function pos_6_1_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_6_1');
+position = get(handles.pos_6_1, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_6_1, handles);
 
 function pos_6_2_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_6_2');
+position = get(handles.pos_6_2, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_6_2, handles);
 
 function pos_6_3_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_6_3');
+position = get(handles.pos_6_3, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_6_3, handles);
 
 function pos_6_4_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_6_4');
+position = get(handles.pos_6_4, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_6_4, handles);
 
 function pos_6_5_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_6_5');
+position = get(handles.pos_6_5, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_6_5, handles);
 
 function pos_6_6_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_6_6');
+position = get(handles.pos_6_6, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_6_6, handles);
 
 function pos_6_7_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_6_7');
+position = get(handles.pos_6_7, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_6_7, handles);
 
 function pos_6_8_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_6_8');
+position = get(handles.pos_6_8, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_6_8, handles);
 
 function pos_7_1_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_7_1');
+position = get(handles.pos_7_1, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_7_1, handles);
 
 function pos_7_2_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_7_2');
+position = get(handles.pos_7_2, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_7_2, handles);
 
 function pos_7_3_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_7_3');
+position = get(handles.pos_7_3, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_7_3, handles);
 
 function pos_7_4_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_7_4');
+position = get(handles.pos_7_4, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_7_4, handles);
 
 function pos_7_5_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_7_5');
+position = get(handles.pos_7_5, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_7_5, handles);
 
 function pos_7_6_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_7_6');
+position = get(handles.pos_7_6, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_7_6, handles);
 
 function pos_7_7_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_7_7');
+position = get(handles.pos_7_7, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_7_7, handles);
 
 function pos_7_8_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_7_8');
+position = get(handles.pos_7_8, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_7_8, handles);
 
 function pos_8_1_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_8_1');
+position = get(handles.pos_8_1, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_8_1, handles);
 
 function pos_8_2_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_8_2');
+position = get(handles.pos_8_2, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_8_2, handles);
 
 function pos_8_3_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_8_3');
+position = get(handles.pos_8_3, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_8_3, handles);
 
 function pos_8_4_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_8_4');
+position = get(handles.pos_8_4, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_8_4, handles);
 
 function pos_8_5_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_8_5');
+position = get(handles.pos_8_5, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_8_5, handles);
 
 function pos_8_6_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_8_6');
+position = get(handles.pos_8_6, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_8_6, handles);
 
 function pos_8_7_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_8_7');
+position = get(handles.pos_8_7, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_8_7, handles);
 
 function pos_8_8_ButtonDownFcn(hObject, eventdata, handles)
+disp('pos_8_8');
+position = get(handles.pos_8_8, 'UserData');
+manager = getGlobalManager();
+manager = manager.move(position, handles.pos_8_8, handles);

@@ -1,5 +1,5 @@
 classdef GameManager < handle
-   
+    
     properties
         gamePieceArray;
         storedPosition = [];
@@ -17,15 +17,30 @@ classdef GameManager < handle
         function manager = GameManager()
             manager.gamePieceArray = {};
             manager.gamePieceArray{1,1} = Rook(0,[1,1]);
-      
+            manager.gamePieceArray{1,2} = Knight(0, [1,2]);
+            manager.gamePieceArray{1,3} = Bishop(0, [1,3]);
+            manager.gamePieceArray{1,4} = Queen(0, [1,4]);
+            manager.gamePieceArray{1,5} = King(0, [1,5]);
+            manager.gamePieceArray{1,6} = Bishop(0, [1,6]);
+            manager.gamePieceArray{1,7} = Knight(0, [1,7]);
+            manager.gamePieceArray{1,8} = Rook(0, [1,8]);
+            
+            manager.gamePieceArray{8,1} = Rook(1,[8,1]);
+            manager.gamePieceArray{8,2} = Knight(1, [8,2]);
+            manager.gamePieceArray{8,3} = Bishop(1, [8,3]);
+            manager.gamePieceArray{8,4} = Queen(1, [8,4]);
+            manager.gamePieceArray{8,5} = King(1, [8,5]);
+            manager.gamePieceArray{8,6} = Bishop(1, [8,6]);
+            manager.gamePieceArray{8,7} = Knight(1, [8,7]);
+            manager.gamePieceArray{8,8} = Rook(1, [8,8]);
+            
             for i = 1:8
-                manager.gamePieceArray{2, i} = GamePiece(0);
+                manager.gamePieceArray{2, i} = Pawn(0, [2,i]);
                 manager.gamePieceArray{3, i} = GamePiece(-1);
                 manager.gamePieceArray{4, i} = GamePiece(-1);
                 manager.gamePieceArray{5, i} = GamePiece(-1);
                 manager.gamePieceArray{6, i} = GamePiece(-1);
-                manager.gamePieceArray{7, i} = GamePiece(1);
-                manager.gamePieceArray{8, i} = GamePiece(1);
+                manager.gamePieceArray{7, i} = Pawn(1, [7,i]);
             end
         end
         
@@ -49,71 +64,134 @@ classdef GameManager < handle
             
             % Check if piece is on the right team.
             [~, onTeam] = isOnTeam(manager, position);
-            if onTeam == 1
-                % Check if we're selecting a piece, or moving a piece
-                if isempty(manager.storedPosition) == 1
-                    manager.storedPosition = position;
-                    disp('Position stored');
-                    disp(manager.storedPosition);
-                    % Change the image of axesObj to the highlighted image
-                else
+            if onTeam == 1 && isempty(manager.storedPosition) == 1
+                manager.storedPosition = position;
+                disp('Position stored');
+                disp(manager.storedPosition);
+                
+            elseif isempty(manager.storedPosition) == 0
+                if onTeam == 0 || manager.gamePieceArray{y, x}.team == -1
                     % Check if move is valid (function will be implemented
                     % later when the actual piece classes are defined). For
                     % now, assume any move is valid.
                     
-                    % This is the 'back end' of the logic. Controlling all
-                    % the pieces on our imaginary gamePieceArray. This
-                    % section runs if we've selected a piece and want to
-                    % move it somewhere else.
-                    
-                    % TODO: Switch the image on the axes at 'position' to
-                    % the image on the axes at 'storedPosition', and set
-                    % the image on the axes at 'storedPosition' to
-                    % empty.png
-                    
                     oldX = manager.storedPosition(1);
                     oldY = manager.storedPosition(2);
-                    selectedPiece = manager.gamePieceArray{oldX, oldY};
+                    selectedPiece = manager.gamePieceArray{oldY, oldX};
                     
                     previousPieceClass = class(manager.gamePieceArray{oldY, oldX});
+                    previousPieceTeam = manager.gamePieceArray{oldY, oldX}.team;
                     
                     switch previousPieceClass
                         case 'Rook'
                             axes(axesObj);
                             delete(get(gca,'Children'));
-                            [a,map,alpha] = imread('resources/pieces/white/rook.png');
-                            a = imshow('resources/pieces/white/rook.png');
-                            set(a, 'AlphaData', alpha);
-                            a.HitTest = 'off';
+                            if previousPieceTeam == 0
+                                [a,map,alpha] = imread('resources/pieces/white/rook.png');
+                                a = imshow('resources/pieces/white/rook.png');
+                                set(a, 'AlphaData', alpha);
+                                a.HitTest = 'off';
+                            elseif previousPieceTeam == 1
+                                [a,map,alpha] = imread('resources/pieces/black/rook.png');
+                                a = imshow('resources/pieces/black/rook.png');
+                                set(a, 'AlphaData', alpha);
+                                a.HitTest = 'off';
+                            end
+                        case 'Pawn'
+                            axes(axesObj);
+                            delete(get(gca,'Children'));
+                            if previousPieceTeam == 0
+                                [a,map,alpha] = imread('resources/pieces/white/pawn.png');
+                                a = imshow('resources/pieces/white/pawn.png');
+                                set(a, 'AlphaData', alpha);
+                                a.HitTest = 'off';
+                            elseif previousPieceTeam == 1
+                                [a,map,alpha] = imread('resources/pieces/black/pawn.png');
+                                a = imshow('resources/pieces/black/pawn.png');
+                                set(a, 'AlphaData', alpha);
+                                a.HitTest = 'off';
+                            end
+                        case 'Bishop'
+                            axes(axesObj);
+                            delete(get(gca,'Children'));
+                            if previousPieceTeam == 0
+                                [a,map,alpha] = imread('resources/pieces/white/bishop.png');
+                                a = imshow('resources/pieces/white/bishop.png');
+                                set(a, 'AlphaData', alpha);
+                                a.HitTest = 'off';
+                            elseif previousPieceTeam == 1
+                                [a,map,alpha] = imread('resources/pieces/black/bishop.png');
+                                a = imshow('resources/pieces/black/bishop.png');
+                                set(a, 'AlphaData', alpha);
+                                a.HitTest = 'off';
+                            end
+                        case 'Knight'
+                            axes(axesObj);
+                            delete(get(gca,'Children'));
+                            if previousPieceTeam == 0
+                                [a,map,alpha] = imread('resources/pieces/white/knight.png');
+                                a = imshow('resources/pieces/white/knight.png');
+                                set(a, 'AlphaData', alpha);
+                                a.HitTest = 'off';
+                            elseif previousPieceTeam == 1
+                                [a,map,alpha] = imread('resources/pieces/black/knight.png');
+                                a = imshow('resources/pieces/black/knight.png');
+                                set(a, 'AlphaData', alpha);
+                                a.HitTest = 'off';
+                            end
+                        case 'Queen'
+                            axes(axesObj);
+                            delete(get(gca,'Children'));
+                            if previousPieceTeam == 0
+                                [a,map,alpha] = imread('resources/pieces/white/queen.png');
+                                a = imshow('resources/pieces/white/queen.png');
+                                set(a, 'AlphaData', alpha);
+                                a.HitTest = 'off';
+                            elseif previousPieceTeam == 1
+                                [a,map,alpha] = imread('resources/pieces/black/queen.png');
+                                a = imshow('resources/pieces/black/queen.png');
+                                set(a, 'AlphaData', alpha);
+                                a.HitTest = 'off';
+                            end
+                        case 'King'
+                            axes(axesObj);
+                            delete(get(gca,'Children'));
+                            if previousPieceTeam == 0
+                                [a,map,alpha] = imread('resources/pieces/white/king.png');
+                                a = imshow('resources/pieces/white/king.png');
+                                set(a, 'AlphaData', alpha);
+                                a.HitTest = 'off';
+                            elseif previousPieceTeam == 1
+                                [a,map,alpha] = imread('resources/pieces/black/king.png');
+                                a = imshow('resources/pieces/black/king.png');
+                                set(a, 'AlphaData', alpha);
+                                a.HitTest = 'off';
+                            end
                     end
                     
                     previousAxes = findobj('UserData', manager.storedPosition);
                     axes(previousAxes);
                     delete(get(gca,'Children'));
-                    [a,map,alpha] = imread('resources/pieces/king.png');
-                    a = imshow('resources/pieces/king.png');
+                    [a,map,alpha] = imread('resources/pieces/empty.png');
+                    a = imshow('resources/pieces/empty.png');
                     set(a, 'AlphaData', alpha);
                     a.HitTest = 'off';
                     
-                    
-                    
-                    
                     manager.gamePieceArray{y,x} = selectedPiece;
-                    manager.gamePieceArray{oldX, oldY} = GamePiece(-1);
+                    manager.gamePieceArray{oldY, oldX} = GamePiece(-1);
                     
                     manager.storedPosition = [];
                     % For debugging purposes
                     manager.gamePieceArray
                     
-                    
-                    
-                    
                     manager.turn = manager.turn + 1;
+                else
+                    disp('You cannot move there!');
+                    manager.storedPosition = [];
                 end
-            elseif onTeam == 1
+            else
                 disp('Piece is not on your team!');
-            else    % TODO: Figure out why this is happening.
-                disp('This is where the bug is');
+                manager.storedPosition = [];
             end
         end
         
@@ -124,7 +202,7 @@ classdef GameManager < handle
             y = position(2);
             
             % For debugging purposes
-            piece = manager.gamePieceArray{y,x}
+            piece = manager.gamePieceArray{y,x};
             
             % This function kept running for some reason, although a blank
             % piece should've been caught before the move function gets
