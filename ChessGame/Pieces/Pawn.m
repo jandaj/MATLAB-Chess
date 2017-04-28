@@ -9,7 +9,6 @@ classdef Pawn < GamePiece
             pawn.position = position;
         end
         
-        
         function valid = isValidMove(pawn, newPosition)
             x = newPosition(1);
             y = newPosition(2);

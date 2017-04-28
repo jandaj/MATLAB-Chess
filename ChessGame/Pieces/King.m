@@ -10,9 +10,19 @@ classdef King < GamePiece
         end 
         
         
-        % Fix this
-        function valid = isValidMove(king, position)
-            valid = true;
+        function valid = isValidMove(King, newPosition)
+            x = newPosition(1);
+            y = newPosition(2);
+            initX = King.position(1);
+            initY = King.position(2);
+            if(abs(x-initX)<=1)
+                if(abs(y-initY)<=1) 
+                    valid = 1;
+                else
+                    valid = 0;
+                end
+            else valid = 0;
+            end
         end
     end
 end
