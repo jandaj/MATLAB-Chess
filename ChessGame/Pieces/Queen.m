@@ -8,11 +8,25 @@ classdef Queen < GamePiece
             queen = queen@GamePiece(team);
             queen.position = position;
         end 
-        
-        
-        % Fix this
-        function valid = isValidMove(queen, position)
-            valid = true;
+        function valid = isValidMove(queen, newPosition)
+            x = newPosition(1);
+            y = newPosition(2);
+            initX = queen.position(1);
+            initY = queen.position(2);
+            deltaX = x - initX;
+            deltaY = y - initY;
+            
+            if deltaY == 0 && deltaX == 0
+                valid = 0;
+            elseif abs(deltaY) == abs(deltaX)
+                valid = 1;
+            elseif deltaY == 0 && deltaX ~=0
+                valid = 1;
+            elseif deltaX == 0 && deltaY ~=0
+                valid = 1;
+            else
+                valid = 0;
+            end
         end
     end
 end
