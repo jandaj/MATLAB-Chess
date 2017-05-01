@@ -20,12 +20,11 @@ classdef Knight < GamePiece
                 valid = 0;
             elseif abs(deltaY) == 2 && abs(deltaX) == 1
                 valid = 1;
-                knight.position = newPosition;
+                knight.position = newPo
             elseif abs(deltaX) == 2 && abs(deltaY) == 1
                 valid = 1;
-                knight.position = newPosition;
             else
-                valid = 0;
+                valid = 0
             end
         end
     end

@@ -20,12 +20,14 @@ classdef Pawn < GamePiece
             if pawn.team == 0
                 if deltaX == 1 && deltaY == 0
                     valid = 1;
+                    pawn.position = newPosition;
                 else 
                     valid = 0;
                 end
             else
                 if deltaX == -1 && deltaY == 0
                     valid = 1;
+                    pawn.position = newPosition;
                 else 
                     valid = 0;
                 end
