@@ -16,13 +16,16 @@ classdef Rook < GamePiece
             initY = rook.position(2);
             deltaX = x - initX;
             deltaY = y - initY;
-            
+            valid = 0;
             if deltaX ~= 0 && deltaY == 0
                 valid = 1;
-            elseif deltaY ~= 0 && deltaX == 0
+                rook.position = newPosition;
+                return;
+            end
+            if deltaY ~= 0 && deltaX == 0
                 valid = 1;
-            else
-                valid = 0;
+                rook.position = newPosition;
+                return;
             end
             if valid == 1
                 rook.position(1) = x;

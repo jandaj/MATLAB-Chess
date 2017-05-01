@@ -23,6 +23,7 @@ classdef Pawn < GamePiece
                     pawn.first = 0;
             elseif deltaX == 1 && deltaY == 0
                     valid = 1;
+                    pawn.position = newPosition;
                 else 
                     valid = 0;
                 end
@@ -32,6 +33,7 @@ classdef Pawn < GamePiece
                     pawn.first = 0;
                 elseif deltaX == -1 && deltaY == 0
                     valid = 1;
+                    pawn.position = newPosition;
                 else 
                     valid = 0;
                 end

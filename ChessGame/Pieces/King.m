@@ -18,10 +18,12 @@ classdef King < GamePiece
             if(abs(x-initX)<=1)
                 if(abs(y-initY)<=1) 
                     valid = 1;
+                    king.position = newPosition;
                 else
                     valid = 0;
                 end
-            else valid = 0;
+            else
+                valid = 0;
             end
             if valid == 1
                 King.position(1) = x;

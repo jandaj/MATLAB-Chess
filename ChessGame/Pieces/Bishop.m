@@ -21,6 +21,7 @@ classdef Bishop < GamePiece
                 valid = 0;
             elseif abs(deltaY) == abs(deltaX)
                 valid = 1;
+                bishop.position = newPosition;
             else
                 valid = 0;
             end

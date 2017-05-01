@@ -9,7 +9,7 @@ classdef Knight < GamePiece
             knight.position = position;
         end 
         function valid = isValidMove(knight, newPosition)
-            x = newPosition(1);
+        x = newPosition(1);
             y = newPosition(2);
             initX = knight.position(1);
             initY = knight.position(2);
@@ -20,16 +20,11 @@ classdef Knight < GamePiece
                 valid = 0;
             elseif abs(deltaY) == 2 && abs(deltaX) == 1
                 valid = 1;
-                knight.position = newPosition;
+                knight.position = newPo
             elseif abs(deltaX) == 2 && abs(deltaY) == 1
                 valid = 1;
-                knight.position = newPosition;
             else
-                valid = 0;
-            end
-            if valid == 1
-                knight.position(1) = x;
-                knight.position(2) = y;
+                valid = 0
             end
         end
     end
