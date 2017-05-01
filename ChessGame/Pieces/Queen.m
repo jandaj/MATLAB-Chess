@@ -27,6 +27,10 @@ classdef Queen < GamePiece
             else
                 valid = 0;
             end
+            if valid == 1
+                queen.position(1) = x;
+                queen.position(2) = y;
+            end
         end
     end
 end

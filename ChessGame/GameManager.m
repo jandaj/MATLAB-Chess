@@ -71,9 +71,7 @@ classdef GameManager < handle
                 
             elseif isempty(manager.storedPosition) == 0
                 if onTeam == 0 || manager.gamePieceArray{y, x}.team == -1
-                    % Check if move is valid (function will be implemented
-                    % later when the actual piece classes are defined). For
-                    % now, assume any move is valid.
+                    % Check if move is valid
                     
                     oldX = manager.storedPosition(1);
                     oldY = manager.storedPosition(2);
@@ -200,8 +198,8 @@ classdef GameManager < handle
                 disp('Piece is not on your team!');
                 manager.storedPosition = [];
             end
+            
         end
-        
         
         % Determine if a piece is on the correct team for a turn
         function [manager, onTeam] = isOnTeam(manager, position)

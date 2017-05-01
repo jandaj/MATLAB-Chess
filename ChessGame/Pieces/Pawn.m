@@ -1,6 +1,7 @@
 classdef Pawn < GamePiece
     properties
         position;
+        first = 1;
     end
     
     methods
@@ -16,19 +17,28 @@ classdef Pawn < GamePiece
             initY = pawn.position(2);
             deltaX = x - initX;
             deltaY = y - initY;
-  
             if pawn.team == 0
-                if deltaX == 1 && deltaY == 0
+                if deltaX == 2 && deltaY == 0 && pawn.first == 1
+                    valid = 1;
+                    pawn.first = 0;
+            elseif deltaX == 1 && deltaY == 0
                     valid = 1;
                 else 
                     valid = 0;
                 end
             else
-                if deltaX == -1 && deltaY == 0
+                if deltaX == -2 && deltaY == 0 && pawn.first == 1
+                    valid = 1;
+                    pawn.first = 0;
+                elseif deltaX == -1 && deltaY == 0
                     valid = 1;
                 else 
                     valid = 0;
                 end
+            end
+            if valid == 1
+                pawn.position(1) = x;
+                pawn.position(2) = y;
             end
         end
     end

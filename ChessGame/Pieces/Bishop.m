@@ -24,6 +24,10 @@ classdef Bishop < GamePiece
             else
                 valid = 0;
             end
+            if valid == 1
+                bishop.position(1) = x;
+                bishop.position(2) = y;
+            end
         end
     end
 end

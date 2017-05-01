@@ -24,6 +24,10 @@ classdef Rook < GamePiece
             else
                 valid = 0;
             end
+            if valid == 1
+                rook.position(1) = x;
+                rook.position(2) = y;
+            end
         end
     end
 end

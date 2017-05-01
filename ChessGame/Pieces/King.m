@@ -23,6 +23,10 @@ classdef King < GamePiece
                 end
             else valid = 0;
             end
+            if valid == 1
+                King.position(1) = x;
+                King.position(2) = y;
+            end
         end
     end
 end
