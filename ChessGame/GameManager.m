@@ -188,17 +188,295 @@ classdef GameManager < handle
                         manager.turn = manager.turn + 1;
                     else 
                         disp('That move is not allowed for that piece!');
+                        axesPiece = findobj('UserData', manager.storedPosition);
+                        
+                        a = manager.storedPosition(1);
+                        b = manager.storedPosition(2);
+                        
+                        previousPieceClass = class(manager.gamePieceArray{b, a});
+                        previousPieceTeam = manager.gamePieceArray{b, a}.team;
+                        switch previousPieceClass
+                            case 'Rook'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/rook.png');
+                                    a = imshow('resources/pieces/white/rook.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/rook.png');
+                                    a = imshow('resources/pieces/black/rook.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Pawn'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/pawn.png');
+                                    a = imshow('resources/pieces/white/pawn.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/pawn.png');
+                                    a = imshow('resources/pieces/black/pawn.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Bishop'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/bishop.png');
+                                    a = imshow('resources/pieces/white/bishop.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/bishop.png');
+                                    a = imshow('resources/pieces/black/bishop.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Knight'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/knight.png');
+                                    a = imshow('resources/pieces/white/knight.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/knight.png');
+                                    a = imshow('resources/pieces/black/knight.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Queen'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/queen.png');
+                                    a = imshow('resources/pieces/white/queen.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/queen.png');
+                                    a = imshow('resources/pieces/black/queen.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'King'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/king.png');
+                                    a = imshow('resources/pieces/white/king.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/king.png');
+                                    a = imshow('resources/pieces/black/king.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                        end
                         manager.storedPosition = [];
                     end
                 else
                     disp('You cannot move there!');
+                    axesPiece = findobj('UserData', manager.storedPosition);
+                        
+                        a = manager.storedPosition(1);
+                        b = manager.storedPosition(2);
+                        
+                        previousPieceClass = class(manager.gamePieceArray{b, a});
+                        previousPieceTeam = manager.gamePieceArray{b, a}.team;
+                        switch previousPieceClass
+                            case 'Rook'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/rook.png');
+                                    a = imshow('resources/pieces/white/rook.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/rook.png');
+                                    a = imshow('resources/pieces/black/rook.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Pawn'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/pawn.png');
+                                    a = imshow('resources/pieces/white/pawn.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/pawn.png');
+                                    a = imshow('resources/pieces/black/pawn.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Bishop'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/bishop.png');
+                                    a = imshow('resources/pieces/white/bishop.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/bishop.png');
+                                    a = imshow('resources/pieces/black/bishop.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Knight'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/knight.png');
+                                    a = imshow('resources/pieces/white/knight.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/knight.png');
+                                    a = imshow('resources/pieces/black/knight.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Queen'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/queen.png');
+                                    a = imshow('resources/pieces/white/queen.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/queen.png');
+                                    a = imshow('resources/pieces/black/queen.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'King'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/king.png');
+                                    a = imshow('resources/pieces/white/king.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/king.png');
+                                    a = imshow('resources/pieces/black/king.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                        end
                     manager.storedPosition = [];
                 end
             else
                 disp('Piece is not on your team!');
                 manager.storedPosition = [];
             end
-            
+            if(~isempty(manager.storedPosition))
+                a = manager.storedPosition(1);
+                b = manager.storedPosition(2);
+                piece = manager.gamePieceArray{b,a};
+                PieceClass = class(piece);
+                previousPieceTeam = manager.gamePieceArray{b, a}.team;
+                switch PieceClass
+                            case 'Rook'
+                                axes(axesObj);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/selected/rook.png');
+                                    a = imshow('resources/pieces/white/rook.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/selected/rook.png');
+                                    a = imshow('resources/pieces/black/rook.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Pawn'
+                                axes(axesObj);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/selected/pawn.png');
+                                    a = imshow('resources/pieces/white/selected/pawn.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/selected/pawn.png');
+                                    a = imshow('resources/pieces/black/selected/pawn.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Bishop'
+                                axes(axesObj);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/selected/bishop.png');
+                                    a = imshow('resources/pieces/white/bishop.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/selected/bishop.png');
+                                    a = imshow('resources/pieces/black/bishop.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Knight'
+                                axes(axesObj);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/selected/knight.png');
+                                    a = imshow('resources/pieces/white/knight.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/selected/knight.png');
+                                    a = imshow('resources/pieces/black/knight.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Queen'
+                                axes(axesObj);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/selected/queen.png');
+                                    a = imshow('resources/pieces/white/queen.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/selected/queen.png');
+                                    a = imshow('resources/pieces/black/queen.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'King'
+                                axes(axesObj);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/selected/king.png');
+                                    a = imshow('resources/pieces/white/king.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/selected/king.png');
+                                    a = imshow('resources/pieces/black/king.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                end
+            end
         end
         
         % Determine if a piece is on the correct team for a turn
