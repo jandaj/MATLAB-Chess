@@ -14,6 +14,21 @@ classdef GameManager < handle
         % The reference to each GamePiece object is the index, we identify
         % different pieces by their indices, which are their positions on
         % the board.
+        function winner = gameDone(manager) %function returns a 1, 2, 3 for player 1 or 2, or none
+            winner = 0;
+            for i = 1:8
+                for j = 1:8
+                    pieceType = class(manager.gamePieceArray{i, j});
+                    pieceTeam = manager.gamePieceArray{i, j}.team;
+                    if strcmp(pieceType,'King') && pieceTeam==0
+                        winner = winner + 1;
+                    elseif strcmp(pieceType,'King') && pieceTeam==1
+                        winner = winner + 2;
+                    end
+                end
+            end
+        end
+        
         function manager = GameManager()
             manager.gamePieceArray = {};
             manager.gamePieceArray{1,1} = Rook(0,[1,1]);
@@ -54,6 +69,19 @@ classdef GameManager < handle
             %             callback function
             x = position(1);
             y = position(2);
+            
+            winner = gameDone(manager);
+            if winner ~= 3
+                if winner==1
+                    winner = ' Player 1';
+                elseif winner ==2
+                    winner = ' Player 2';
+                else
+                    winner = ' Player 3';
+                end
+                disp(strcat('The Winner is',winner,'!'));
+                return;
+            end
             
             % Check if piece is empty
             if isempty(manager.storedPosition) == 1&& ...
