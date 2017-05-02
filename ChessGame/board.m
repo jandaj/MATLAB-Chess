@@ -22,7 +22,7 @@ function varargout = board(varargin)
 
 % Edit the above text to modify the response to help board
 
-% Last Modified by GUIDE v2.5 17-Apr-2017 00:16:58
+% Last Modified by GUIDE v2.5 01-May-2017 23:06:24
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -808,6 +808,9 @@ disp('UNDO');
 % --- Executes on button press in RESET_BUTTON.
 function RESET_BUTTON_Callback(hObject, eventdata, handles)
 disp('reset');
+close(gcbf);
+board;
+
 
 function board_ButtonDownFcn(hObject, eventdata, handles)
 
@@ -1207,3 +1210,4 @@ disp('pos_8_8');
 position = get(handles.pos_8_8, 'UserData');
 manager = getGlobalManager();
 manager = manager.move(position, handles.pos_8_8, handles);
+
