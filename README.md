@@ -1,2 +1,2 @@
 # MATLAB CHESS BOARD PROJECT
-Github repository of Matlab Chess Board Project.
+Github repository of Matlab Chess Board Project.  Our first attempt at OOP in MATLAB.  Done as a small group at Rutgers University as a final course project for Intro to Computers for Engineers.  Unforunately, it is missing a few features, like pawn promotion and other extensive chess rules which we will attempt to add at a later time.
