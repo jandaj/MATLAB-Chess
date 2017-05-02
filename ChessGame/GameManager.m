@@ -1,9 +1,11 @@
 classdef GameManager < handle
     
     properties
+        historicalGamePieceArray;
         gamePieceArray;
         storedPosition = [];
         turn = 0;
+        undoed = 0;
     end
     
     
@@ -14,6 +16,116 @@ classdef GameManager < handle
         % The reference to each GamePiece object is the index, we identify
         % different pieces by their indices, which are their positions on
         % the board.
+        function undo(manager)
+            if(manager.turn~=0 && manager.undoed == 0)
+                manager.gamePieceArray = manager.historicalGamePieceArray;
+                for i = 1:8
+                    for j = 1:8
+                            previousPieceClass = class(manager.historicalGamePieceArray{9-i, j});
+                            previousPieceTeam = manager.historicalGamePieceArray{9-i, j}.team;
+                            axesPiece = findobj('UserData', [j,9-i]);
+                        switch previousPieceClass
+                            case 'Rook'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/rook.png');
+                                    a = imshow('resources/pieces/white/rook.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/rook.png');
+                                    a = imshow('resources/pieces/black/rook.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Pawn'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/pawn.png');
+                                    a = imshow('resources/pieces/white/pawn.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/pawn.png');
+                                    a = imshow('resources/pieces/black/pawn.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Bishop'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/bishop.png');
+                                    a = imshow('resources/pieces/white/bishop.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/bishop.png');
+                                    a = imshow('resources/pieces/black/bishop.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Knight'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/knight.png');
+                                    a = imshow('resources/pieces/white/knight.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/knight.png');
+                                    a = imshow('resources/pieces/black/knight.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'Queen'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/queen.png');
+                                    a = imshow('resources/pieces/white/queen.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/queen.png');
+                                    a = imshow('resources/pieces/black/queen.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            case 'King'
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                                if previousPieceTeam == 0
+                                    [a,map,alpha] = imread('resources/pieces/white/king.png');
+                                    a = imshow('resources/pieces/white/king.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                elseif previousPieceTeam == 1
+                                    [a,map,alpha] = imread('resources/pieces/black/king.png');
+                                    a = imshow('resources/pieces/black/king.png');
+                                    set(a, 'AlphaData', alpha);
+                                    a.HitTest = 'off';
+                                end
+                            otherwise
+                                axes(axesPiece);
+                                delete(get(gca,'Children'));
+                        [a,map,alpha] = imread('resources/pieces/empty.png');
+                        a = imshow('resources/pieces/empty.png');
+                        set(a, 'AlphaData', alpha);
+                        a.HitTest = 'off';
+                        end
+                        end
+                end
+            else
+                disp('Cannot undo.');
+            end
+            manager.turn = manager.turn - 1; 
+            undoed = 1;
+        end
+        
         function winner = gameDone(manager) %function returns a 1, 2, 3 for player 1 or 2, or none
             winner = 0;
             for i = 1:8
@@ -67,6 +179,7 @@ classdef GameManager < handle
             % parameter - 'handles' lets us access GUI data, pass in the
             %             the same handles that are an argument to the
             %             callback function
+            
             x = position(1);
             y = position(2);
             
@@ -93,6 +206,7 @@ classdef GameManager < handle
             % Check if piece is on the right team.
             [~, onTeam] = isOnTeam(manager, position);
             if onTeam == 1 && isempty(manager.storedPosition) == 1
+                manager.historicalGamePieceArray = manager.gamePieceArray;
                 manager.storedPosition = position;
                 disp('Position stored');
                 disp(manager.storedPosition);
@@ -214,6 +328,7 @@ classdef GameManager < handle
                         manager.gamePieceArray
                         
                         manager.turn = manager.turn + 1;
+                        undoed = 0;
                     else 
                         disp('That move is not allowed for that piece!');
                         axesPiece = findobj('UserData', manager.storedPosition);

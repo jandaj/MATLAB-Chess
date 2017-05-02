@@ -791,7 +791,7 @@ global manager;
 m = manager;
 
 
-
+ 
 % UIWAIT makes board wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
@@ -803,11 +803,13 @@ varargout{1} = handles.output;
 % --- Executes on button press in UNDO_BUTTON.
 function UNDO_BUTTON_Callback(hObject, eventdata, handles)
 disp('UNDO');
+manager = getGlobalManager();
+manager.undo();
 
 
 % --- Executes on button press in RESET_BUTTON.
 function RESET_BUTTON_Callback(hObject, eventdata, handles)
-disp('reset');
+disp('RESET');
 close(gcbf);
 board;
 
